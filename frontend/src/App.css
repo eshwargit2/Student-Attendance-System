@@ -44,3 +44,12 @@
 /* h1{    
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 } */
+
+body{
+  background-image: url("https://www.skoolbeep.com/blog/wp-content/uploads/2020/12/Online-Attendance-Management-System-768x722.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-position: center;
+   font-family: "Poppins", sans-serif;
+}

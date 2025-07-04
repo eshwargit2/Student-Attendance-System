@@ -3,6 +3,8 @@ import axios from 'axios'
 
 import './App.css'
 import BarcodeScanner from './components/Scanner'
+import Attended from './components/Attended';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 function App() {
   
@@ -17,10 +19,21 @@ function App() {
     console.error('Error fetching data:', error);
   });
 
+  const navigate = useNavigate();
+
   return (
-    <div className='flex flex-col items-center  min-h-screen p-4 text-white' >
-     <h1 className='text-3xl font-bold mb-4 text-center mt-10' >Student Attendance System {name}</h1>
-     <BarcodeScanner/>
+    <div className='flex flex-col items-center  min-h-screen p-4 ' >
+     <h1 className='text-4xl font-bold mb-4 text-center mt-3' >Student Attendance System {name}</h1>
+
+    
+     <button onClick={() => navigate('/attended')} className='bg-blue-500 text-white px-4 py-2 rounded cursor-pointer'>View Attended Students</button>
+
+     <Routes>
+        <Route path='/' element={<BarcodeScanner/>} />
+        <Route path='/attended' element={<Attended/>} />
+      </Routes>
+
+
     </div>
   )
 }

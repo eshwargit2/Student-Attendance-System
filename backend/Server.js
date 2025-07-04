@@ -53,7 +53,7 @@ app.get('/present-today', async (req, res) => {
   const students = await Student.find({
    
     register_no: { $in: records.map(r => r.register_no) }
-  });
+  },{_id:0});
 
   res.json(students);
 });

@@ -86,7 +86,7 @@ const BarcodeScanner = () => {
             });
             setMessage(res.data.message); // from backend
           } catch (error) {
-            setMessage('❌ Attendance marking failed.');
+            setMessage(' Attendance marking failed.');
           }
         }
 
@@ -113,10 +113,12 @@ const BarcodeScanner = () => {
       {error && <p className="text-red-500">{error}</p>}
       <video
         ref={videoRef}
-        style={{ width: '100%', maxWidth: '500px', border: '2px solid black' }}
+        style={{ width: '100%', maxWidth: '300px', border: '2px solid black' }}
         autoPlay
         muted
       />
+      <input type="text" placeholder='Enter Student ID' className="mt-4 p-2 bg-gray-300 border border-gray-300 rounded" />
+      <button className='m-2 p-2 bg-blue-500 cursor-pointer  text-white rounded' >Enter</button>
       {barcode && (
         <div className="mt-4">
           <p className="text-green-700 font-medium">Scanned: {barcode}</p>
