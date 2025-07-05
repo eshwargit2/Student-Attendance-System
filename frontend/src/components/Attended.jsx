@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Attended = () => {
 
@@ -12,6 +13,7 @@ const Attended = () => {
       day: 'numeric',
     });
 
+    const navigate=useNavigate();
     const [Students, setStudents] = React.useState([]);
     const [size,setSize]=useState(false);
 
@@ -32,7 +34,9 @@ const Attended = () => {
 
       
   return (
-    <div className='flex flex-col items-center mt-4'>
+    <div className='flex flex-col items-center ' >
+       <button onClick={() => navigate('/')} className='bg-blue-500 text-white px-4 py-2 rounded cursor-pointer'>Scan Now</button>
+    <div className='flex flex-col items-center mt-4 card bg-slate-200 shadow-md rounded-lg p-4 max-w-2xl mx-auto'>
     <h2 className='text-2xl font-bold mb-4'>Attendance Records</h2>
     <div>Attended Students on {today}</div>
     {size && <div className='text-red-500'>No students attended today</div>}
@@ -43,6 +47,7 @@ const Attended = () => {
         <tr>
           <th className='border border-gray-300 p-2'>Name</th>
           <th className='border border-gray-300 p-2'>Register No</th>
+          <th className='border border-gray-300 p-2'>Department</th>
         </tr>
       </thead>
       <tbody>
@@ -51,11 +56,13 @@ const Attended = () => {
           <tr key={student.register_no}>
             <td className='border border-gray-300 p-2'>{student.name}</td>
             <td className='border border-gray-300 p-2'>{student.register_no}</td>
+            <td className='border border-gray-300 p-2'>{student.department}</td>
           </tr>
         ))}
       </tbody>
     </table>
 }
+</div>
     </div>
   )
 }
