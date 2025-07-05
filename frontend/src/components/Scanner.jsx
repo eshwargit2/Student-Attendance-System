@@ -65,6 +65,15 @@ const BarcodeScanner = () => {
     setInputValue('');
   };
 
+  const Enterbtn=(event)=>{
+    if(event.key === 'Enter'){
+      handleManualEntry();
+    }
+    else{
+      console.log("Please press Enter to submit");
+      
+    }
+    }
   return (
     <div className='flex flex-col items-center '>
        <button onClick={() => navigate('/attended')} className='bg-blue-500 text-white  px-4 py-2 rounded cursor-pointer'>View Attended Students</button>
@@ -94,6 +103,7 @@ const BarcodeScanner = () => {
         <button
           onClick={handleManualEntry}
           className="ml-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          onKeyDown={Enterbtn}
         >
           Enter
         </button>
