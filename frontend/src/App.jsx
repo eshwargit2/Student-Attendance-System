@@ -8,16 +8,16 @@ import Admin from './admin/Admin';
 
 function App() {
   
-  const [name, setName] = useState('');
+  // const [name, setName] = useState('');
 
-  const backendData = axios.get('http://localhost:5000/api/std')
-  .then(response => {
-    console.log(response.data.name);
-    setName(response.data.name);
-  })
-  .catch(error => {
-    console.error('Error fetching data:', error);
-  });
+  // const backendData = axios.get('http://localhost:5000/api/std')
+  // .then(response => {
+  //   console.log(response.data.name);
+  //   setName(response.data.name);
+  // })
+  // .catch(error => {
+  //   console.error('Error fetching data:', error);
+  // });
 
   return (
     <div className='flex flex-col items-center  min-h-screen p-4 ' >

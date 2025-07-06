@@ -14,8 +14,8 @@ const navigate = useNavigate();
 const handleLogin= async ()=>{
   try{
     const res = await axios.post('http://localhost:5000/admin-login', {
-     userName,
-    password,
+     userName, 
+     password,
     });
     if(res.data.success){
      navigate('/rediract/barcodescannersecureroute'); // Redirect to the barcode scanner route
@@ -30,7 +30,10 @@ const handleLogin= async ()=>{
   return (
     <div>
         <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-       <form action="">
+       <form onSubmit={(e) => {
+          e.preventDefault();
+          handleLogin();
+       }}>
         <div className="flex flex-col items-center mt-5">
           <label htmlFor="adminId" className="mb-2">Admin ID:</label>
           <input type="text" id="adminId" name="adminId" 
@@ -40,7 +43,7 @@ const handleLogin= async ()=>{
           <input type="password"
           onChange={(e) => setPassword(e.target.value)} id="password" name="password" className="border p-2 rounded mb-4" required />
 
-          <button onClick={handleLogin} className="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
+          <button type='submit' className="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
           {msg && <p className="text-red-500 mt-2">{msg}</p>}
         </div>
        </form>
