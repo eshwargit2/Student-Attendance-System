@@ -1,32 +1,31 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Admin = () => {
 
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const adminId = e.target.adminId.value;
-    const password = e.target.password.value;
-    if (adminId === 'admin' && password === 'admin123') {
-      alert('Login successful');
-      // Redirect to admin dashboard or perform further actions
-    } else {
-      alert('Invalid credentials');
-    }
-  }
+const [userName, setUserName] =useState('');
+const [password, setPassword] = useState('');
+const [msg, setMsg] =useState('');
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    const adminId = e.target.adminId.value;
-    const password = e.target.password.value;
-    if (adminId === 'admin' && password === 'admin123') {
-      alert('Login successful');
-      // Redirect to admin dashboard or perform further actions
-    } else {
-      alert('Invalid credentials');
+const navigate = useNavigate();
+
+const handleLogin= async ()=>{
+  try{
+    const res = await axios.post('http://localhost:5000/admin-login', {
+     userName,
+    password,
+    });
+    if(res.data.success){
+     navigate('/rediract/barcodescannersecureroute'); // Redirect to the barcode scanner route
+     
     }
-  }
+   
+  }catch(error){
+    setMsg('Invalid credentials, please try again.');
+}
+}
 
   return (
     <div>
@@ -34,16 +33,20 @@ const Admin = () => {
        <form action="">
         <div className="flex flex-col items-center mt-5">
           <label htmlFor="adminId" className="mb-2">Admin ID:</label>
-          <input type="text" id="adminId" name="adminId" className="border p-2 rounded mb-4" required />
-          
+          <input type="text" id="adminId" name="adminId" 
+          onChange={(e) => setUserName(e.target.value)} className="border p-2 rounded mb-4" required />
+
           <label htmlFor="password" className="mb-2">Password:</label>
-          <input type="password" id="password" name="password" className="border p-2 rounded mb-4" required />
-          
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
+          <input type="password"
+          onChange={(e) => setPassword(e.target.value)} id="password" name="password" className="border p-2 rounded mb-4" required />
+
+          <button onClick={handleLogin} className="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
+          {msg && <p className="text-red-500 mt-2">{msg}</p>}
         </div>
        </form>
     </div>
   )
 }
+
 
 export default Admin

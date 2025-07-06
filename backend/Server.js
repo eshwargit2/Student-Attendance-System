@@ -60,12 +60,12 @@ app.get('/present-today', async (req, res) => {
 
 //admin login
 app.post('/admin-login', async (req, res) => {
-  const { adminId, password } = req.body;
+  const { userName, password } = req.body;
 
-  if (adminId === 'admin' && password === 'admin123') {
-    return res.json({ message: 'Login successful' });
+  if (userName === 'admin' && password === 'admin123') {
+    return res.json({success: true, message: 'Login successful' });
 }
-  res.status(401).json({ message: 'Invalid credentials' });
+  res.status(401).json({ success: false, message: 'Invalid credentials' });
 });
 
 
