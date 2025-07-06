@@ -35,7 +35,7 @@ const Attended = () => {
       
   return (
     <div className='flex flex-col items-center ' >
-       <button onClick={() => navigate('/')} className='bg-blue-500 text-white px-4 py-2 rounded cursor-pointer'>Scan Now</button>
+       <button onClick={() => navigate('/rediract/barcodescannersecureroute')} className='bg-blue-500 text-white px-4 py-2 rounded cursor-pointer'>Scan Now</button>
     <div className='flex flex-col items-center mt-4 card bg-slate-200 shadow-md rounded-lg p-4 max-w-2xl mx-auto'>
     <h2 className='text-2xl font-bold mb-4'>Attendance Records</h2>
     <div>Attended Students on {today}</div>
