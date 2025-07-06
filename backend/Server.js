@@ -58,6 +58,17 @@ app.get('/present-today', async (req, res) => {
   res.json(students);
 });
 
+//admin login
+app.post('/admin-login', async (req, res) => {
+  const { adminId, password } = req.body;
+  // Validate admin credentials (this is just a placeholder, implement your own logic)
+  if (adminId === 'admin' && password === 'admin123') {
+    return res.json({ message: 'Login successful' });
+}
+
+  res.status(401).json({ message: 'Invalid credentials' });
+});
+
 app.listen(5000, () => {
   console.log('Server running on http://localhost:5000');
 });
