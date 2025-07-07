@@ -29,8 +29,8 @@ const handleLogin= async ()=>{
 
   return (
     <div>
-        {/* <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-       <form onSubmit={(e) => {
+        <h1 className="text-2xl text-center font-bold">Admin Dashboard</h1>
+       {/* <form onSubmit={(e) => {
           e.preventDefault();
           handleLogin();
        }}>
@@ -47,7 +47,7 @@ const handleLogin= async ()=>{
           {msg && <p className="text-red-500 mt-2">{msg}</p>}
         </div>
        </form> */}
-       <section class="">
+       <section class="mb-10">
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto w-200 md:h-screen lg:py-0">
       
       <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -76,7 +76,7 @@ const handleLogin= async ()=>{
                       </div>
                      
                   </div>
-                  <button  type='submit' className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
+                    <button type='submit' className="bg-blue-500 text-white w-full text-center  py-2 rounded">Login</button>
                  
               </form>
                {msg && <p className="text-red-500 mt-2">{msg}</p>}
