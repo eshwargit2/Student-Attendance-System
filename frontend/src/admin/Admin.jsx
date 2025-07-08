@@ -52,14 +52,10 @@ const handleLogin= async ()=>{
           onChange={(e) => setPassword(e.target.value)} id="password" name="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""/>
                   </div>
                   <div class="flex items-center justify-between">
-                      <div class="flex items-start">
-                          
-                         
-                      </div>
-                     
+                      <div class="flex items-start">                      
+                      </div>           
                   </div>
                     <button type='submit' className="bg-blue-500 text-white w-full text-center  py-2 rounded">Login</button>
-                 
               </form>
                {msg && <p className="text-red-500 mt-2">{msg}</p>}
           </div>
