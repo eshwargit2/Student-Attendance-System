@@ -79,9 +79,7 @@ const BarcodeScanner = () => {
        <button onClick={() => navigate('/rediract/attendedmarksecureroute')} className='bg-blue-500 text-white  px-4 py-2 rounded cursor-pointer'>View Attended Students</button>
     <div className="p-4 text-center card bg-slate-200 shadow-md rounded-lg mt-5 max-w-md mx-auto felx flex-col items-center and justify-center">
       <h2 className="text-xl font-bold mb-4">Scan Student QR Code or Enter Manually</h2>
-
       {error && <p className="text-red-500">{error}</p>}
-
       {/*Video Scanner */}
       <video
         ref={videoRef}
